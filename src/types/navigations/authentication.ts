@@ -13,8 +13,17 @@ export type AuthenticationStackParamList = {
 
 /**
  * Navigation prop dành cho LoginScreen
- * Giúp sử dụng: navigation.navigate('ForgotPassword'), navigation.goBack(), ...
+ * Giúp sử dụng: navigation.navigate('login'), navigation.goBack(), ...
  */
+/*
+    👉 Chỉ type cho navigation
+    ❌ Không có route
+    Khi nào dùng?
+        - ✅ Khi component KHÔNG phải screen, nhưng vẫn cần navigation
+            + Header
+            + Button
+            + Custom component
+*/
 export type LoginScreenNavigationProp = NativeStackNavigationProp<
     AuthenticationStackParamList,
     'login'

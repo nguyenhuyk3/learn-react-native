@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
 
 const BASE_URL = 'https://apibds.newstarco.com.vn/api';
 const TIMEOUT = 10000;

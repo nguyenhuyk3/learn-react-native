@@ -9,7 +9,30 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { COLORS, SIZES } from '../constants';
 
+/*
+        useSafeAreaInsets là một React Hook trong thư viện react-native-safe-area-context, 
+    dùng để lấy khoảng đệm an toàn (safe area) của thiết bị như:
+        - Tai thỏ (notch)
+        - Thanh trạng thái (status bar)
+        - Thanh điều hướng (home indicator) ở iPhone
+        - Một số thiết bị Android đặc biệt
+*/
+
+
 type TabId = 'home' | 'manage' | 'shopping' | 'notifications' | 'account';
+
+/*
+    typeof: Lấy kiểu (type) của một biến / object đã tồn tại
+    keyof: Lấy tất cả key của một type và tạo thành union string literal
+    Ví dụ:
+        const icons = {
+                        home: 123,
+                        settings: 456,
+                        profile: 789,
+                    };
+        type IconName = keyof typeof icons;
+        IconName là: "home" | "settings" | "profile"
+*/
 
 interface TabItem {
     id: TabId;

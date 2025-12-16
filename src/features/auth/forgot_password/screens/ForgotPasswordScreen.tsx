@@ -12,6 +12,17 @@ import {
     SIZES
 } from '../../../../constants/index';
 import { ForgotPasswordFormData, useForgotPasswordStore } from '../../../../stores/authentication';
+import { AuthenticationStackParamList, ForgotPasswordScreenNavigationProp } from '../../../../types/navigations';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+
+/*
+    Tạo một schema Zod để:
+        - Kiểm tra dữ liệu người dùng nhập
+        - Trả lỗi có message tiếng Việt
+        - Dùng cho form (React / React Native)
+    .refine(...): Kiểm tra điều kiện tuỳ chỉnh
+        - val = giá trị người dùng nhập
+*/
 
 const forgotPasswordSchema = z.object({
     username: z.string()
@@ -21,13 +32,38 @@ const forgotPasswordSchema = z.object({
         }),
     registeredEmail: z.string()
         .min(1, "Vui lòng nhập email đăng ký")
-        .email("Địa chỉ email không hợp lệ").refine((val) => val.length >= 8, {
+        .email("Địa chỉ email không hợp lệ")
+        .refine((val) => val.length >= 8, {
             message: "Email đăng ký không hợp lệ (tối thiểu 8 ký tự)",
         }),
 });
 
-const ForgotPasswordScreen: React.FC = () => {
-    const navigation = useNavigation();
+/*
+    resolver: zodResolver(forgotPasswordSchema)
+        👉 Kết nối Zod với react-hook-form
+    forgotPasswordSchema = schema validate bạn đã định nghĩa
+    Khi submit:
+        - react-hook-form gọi Zod
+        - Zod validate dữ liệu
+        - Trả lỗi về cho errors
+
+    reValidateMode: "onSubmit"
+        👉 Khi nào validate lại sau khi đã có lỗi
+        Nghĩa là:
+        - Submit → có lỗi
+        - Người dùng sửa
+        - Submit lần nữa → mới validate lại
+
+    control
+        👉 Dùng cho Controller để kết nối input không phải native input
+
+    formState: { errors }
+        👉 Chứa lỗi validate theo từng field
+*/
+
+type Props = NativeStackScreenProps<AuthenticationStackParamList, 'forgot-password'>;
+
+const ForgotPasswordScreen: React.FC<Props> = ({ navigation }) => {
     const { sendOtp } = useForgotPasswordStore();
     const { control, handleSubmit, formState: { errors } } = useForm<ForgotPasswordFormData>({
         resolver: zodResolver(forgotPasswordSchema),
@@ -61,6 +97,7 @@ const ForgotPasswordScreen: React.FC = () => {
                     />
                 )}
             />
+
             <Controller
                 control={control}
                 name="registeredEmail"
@@ -74,6 +111,7 @@ const ForgotPasswordScreen: React.FC = () => {
                     />
                 )}
             />
+
             <Button
                 mode="contained"
                 onPress={handleSubmit(onSubmit)}
@@ -81,7 +119,7 @@ const ForgotPasswordScreen: React.FC = () => {
                 disabled={false}
                 style={{ marginTop: 10, paddingVertical: 2, borderRadius: 16 }}
                 buttonColor={COLORS.BUTTON_PRIMARY_COLOR}
-                textColor={COLORS.TEXT_IN_BUTTON_COLOR}
+                textColor={COLORS.TEXT_PRIMARY_COLOR}
                 labelStyle={{ fontSize: SIZES.BUTTON_TEXT, fontWeight: '600' }}
             >
                 Gửi mã OTP

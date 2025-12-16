@@ -12,7 +12,7 @@ import {
 import {
     COLORS,
     SIZES,
-    STORAGE_KEYS
+    STORAGE_KEYS,
 } from '../../../../constants';
 import { useLoginStore } from '../../../../stores/authentication';
 import { AuthenticationStackParamList } from '../../../../types/navigations';
@@ -20,6 +20,21 @@ import { RememberForgot } from '../components';
 import { useAuthentication } from '../../../../context';
 import { storageServices } from '../../../../storages';
 
+/*
+    Type đầy đủ cho props của một Screen
+    Bao gồm CẢ:
+        - navigation
+        - route
+    Props = {
+            navigation: NativeStackNavigationProp<...>;
+            route: RouteProp<...>;
+        }
+    Khi nào dùng?
+    ✅ Khi component chính là Screen:
+        - LoginScreen
+        - ForgotPasswordScreen
+        - ProfileScreen
+*/
 type Props = NativeStackScreenProps<AuthenticationStackParamList, 'login'>;
 
 const LoginScreen: React.FC<Props> = ({ navigation }) => {
@@ -47,8 +62,10 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                 setSavedUsername(storedUsername);
                 setUsername(storedUsername);
             }
+
             setIsCheckingStorage(false);
         };
+
         checkSavedUsername();
     }, []);
 
@@ -61,7 +78,6 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
             navigation.getParent()?.navigate('tab');
         }
     };
-
     const handleSwitchAccount = async () => {
         setSavedUsername(null);
         setUsername('');
