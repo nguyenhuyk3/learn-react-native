@@ -18,6 +18,7 @@ interface LoginState {
     setRememberMe: (rememberMe: boolean) => void;
     clearError: () => void;
     login: () => Promise<boolean>;
+    logout: () => Promise<boolean>;
 }
 
 const useLoginStore = create<LoginState>((set, get) => ({
@@ -95,6 +96,20 @@ const useLoginStore = create<LoginState>((set, get) => ({
             set({ isLoading: false });
         }
     },
+    logout: async (): Promise<boolean> => {
+        set({ isLoading: true, error: null, showErrorModal: false });
+
+        await Promise.all([
+            storageServices.remove(STORAGE_KEYS.ACCESS_TOKEN),
+            storageServices.remove(STORAGE_KEYS.REFRESH_TOKEN),
+            storageServices.remove(STORAGE_KEYS.ROLE),
+        ]);
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        set({ isLoading: false });
+
+        return true;
+    }
 }));
 
 export default useLoginStore;

@@ -22,6 +22,7 @@ const RememberForgot: React.FC<Props> = ({
                 justifyContent: "space-between",
                 alignItems: "center",
                 marginBottom: 26,
+                width: '100%'
             }}
         >
             {/* Remember Me */}

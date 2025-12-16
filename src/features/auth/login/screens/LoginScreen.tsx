@@ -11,6 +11,7 @@ import {
 } from '../../../../components';
 import {
     COLORS,
+    SIZES,
     STORAGE_KEYS
 } from '../../../../constants';
 import { useLoginStore } from '../../../../stores/authentication';
@@ -35,9 +36,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
         clearError,
         login
     } = useLoginStore();
-
     const { login: loginContext } = useAuthentication();
-
     const [savedUsername, setSavedUsername] = useState<string | null>(null);
     const [isCheckingStorage, setIsCheckingStorage] = useState(true);
 
@@ -55,8 +54,10 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
 
     const handleLogin = async () => {
         const success = await login();
+
         if (success) {
             loginContext();
+
             navigation.getParent()?.navigate('tab');
         }
     };
@@ -65,6 +66,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
         setSavedUsername(null);
         setUsername('');
         setPassword('');
+
         await storageServices.remove(STORAGE_KEYS.USERNAME);
     };
 
@@ -114,42 +116,39 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                 >
                     <Text
                         style={{
-                            fontSize: 32,
-                            color: '#FFFFFF',
+                            fontSize: SIZES.MEDIUM_ICON_SIZE,
+                            color: COLORS.BACKGROUND_COLOR,
                             fontWeight: 'bold',
                         }}
                     >
                         {initial}
                     </Text>
                 </View>
+
                 {/* Greeting */}
                 <Text
                     style={{
-                        fontSize: 18,
-                        color: '#333',
+                        fontSize: SIZES.H5_TITLE,
+                        color: COLORS.TEXT_PRIMARY_COLOR,
                         marginBottom: 20,
                     }}
                 >
                     Xin chào <Text style={{ fontWeight: 'bold' }}>{savedUsername}</Text>
                 </Text>
 
-                <View style={{ width: '100%' }}>
-                    <FormInput
-                        label="Mật khẩu"
-                        placeholder="Nhập mật khẩu"
-                        value={password}
-                        onChangeText={setPassword}
-                        isPassword
-                    />
-                </View>
+                <FormInput
+                    label="Mật khẩu"
+                    placeholder="Nhập mật khẩu"
+                    value={password}
+                    onChangeText={setPassword}
+                    isPassword
+                />
 
-                <View style={{ width: '100%' }}>
-                    <RememberForgot
-                        rememberMe={rememberMe}
-                        onToggleRemember={() => setRememberMe(!rememberMe)}
-                        onForgotPassword={() => navigation.navigate('forgot-password')}
-                    />
-                </View>
+                <RememberForgot
+                    rememberMe={rememberMe}
+                    onToggleRemember={() => setRememberMe(!rememberMe)}
+                    onForgotPassword={() => navigation.navigate('forgot-password')}
+                />
             </View>
         );
     };
@@ -173,7 +172,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                 }}
                 buttonColor={COLORS.BUTTON_PRIMARY_COLOR}
                 textColor="#fff"
-                labelStyle={{ fontSize: 16, fontWeight: '700' }}
+                labelStyle={{ fontSize: SIZES.H6_TITLE, fontWeight: '700' }}
             >
                 {isLoading ? 'Đang xử lý...' : 'Đăng nhập'}
             </Button>
@@ -193,13 +192,13 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                             style={{
                                 marginTop: 10,
                                 borderRadius: 25,
-                                borderColor: '#E0E0E0',
-                                backgroundColor: '#F5F5F5',
+                                borderColor: COLORS.BUTTON_BORDER_SECONDARY_COLOR,
+                                backgroundColor: COLORS.BUTTON_SECONDARY_COLOR,
                                 borderWidth: 1,
                             }}
-                            textColor="#757575"
+                            textColor={COLORS.SECONDARY_TEXT_IN_BUTTON_COLOR}
                             labelStyle={{
-                                fontSize: 14,
+                                fontSize: SIZES.H7_TITLE,
                                 fontWeight: '500',
                                 textTransform: 'none',
                             }}
@@ -211,6 +210,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
             )}
 
             <LoadingOverlay visible={isLoading} />
+
             <ErrorModal
                 visible={showErrorModal}
                 title="Thông báo"

@@ -25,7 +25,7 @@ const FormInput: React.FC<FormInputProps> = ({
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     return (
-        <View style={{ marginBottom: 20 }}>
+        <View style={{ marginBottom: 20, width: '100%' }}>
             {/* Label */}
             <Text
                 style={{
