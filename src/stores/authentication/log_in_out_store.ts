@@ -5,13 +5,14 @@ import { storageServices } from '../../storages';
 import LoginService from '../../services/authentication/login_service';
 import { LoginRequest } from '../../dtos/authentication';
 
-interface LoginState {
+interface LogInOutState {
     username: string;
     password: string;
     rememberMe: boolean;
     isLoading: boolean;
     error: string | null;
     showErrorModal: boolean;
+    showLogoutModal: boolean;
 
     setUsername: (username: string) => void;
     setPassword: (password: string) => void;
@@ -21,13 +22,14 @@ interface LoginState {
     logout: () => Promise<boolean>;
 }
 
-const useLoginStore = create<LoginState>((set, get) => ({
+const useLogInOutStore = create<LogInOutState>((set, get) => ({
     username: '',
     password: '',
     rememberMe: false,
     isLoading: false,
     error: null,
     showErrorModal: false,
+    showLogoutModal: false,
 
     setUsername: (username) => set({ username }),
     setPassword: (password) => set({ password }),
@@ -97,7 +99,7 @@ const useLoginStore = create<LoginState>((set, get) => ({
         }
     },
     logout: async (): Promise<boolean> => {
-        set({ isLoading: true, error: null, showErrorModal: false });
+        set({ isLoading: true, error: null, showLogoutModal: true });
 
         await Promise.all([
             storageServices.remove(STORAGE_KEYS.ACCESS_TOKEN),
@@ -112,4 +114,4 @@ const useLoginStore = create<LoginState>((set, get) => ({
     }
 }));
 
-export default useLoginStore;
+export default useLogInOutStore;

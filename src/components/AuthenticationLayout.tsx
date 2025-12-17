@@ -5,8 +5,7 @@ import { IconButton, Text } from 'react-native-paper';
 import { COLORS, SIZES } from '../constants';
 import Logo from './Logo';
 
-
-interface AuthScreenLayoutProps {
+interface AuthenticationLayoutProps {
     title: string;
     children: React.ReactNode;
     allowBack?: boolean;
@@ -14,7 +13,7 @@ interface AuthScreenLayoutProps {
     onBack?: () => void;
 }
 
-const AuthScreenLayout: React.FC<AuthScreenLayoutProps> = (
+const AuthenticationLayout: React.FC<AuthenticationLayoutProps> = (
     { title, children, allowBack = false, isWelcomeBack, onBack }) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.PRIMARY_BACKGROUND_COLOR }}>
@@ -67,4 +66,4 @@ const AuthScreenLayout: React.FC<AuthScreenLayoutProps> = (
     );
 };
 
-export default AuthScreenLayout;
+export default AuthenticationLayout;

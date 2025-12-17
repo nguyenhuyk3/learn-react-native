@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Controller, useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-import { AuthScreenLayout, FormInput } from '../../../../components';
+import { AuthenticationLayout, FormInput } from '../../../../components';
 import {
     COLORS,
     SIZES
@@ -79,7 +79,7 @@ const ForgotPasswordScreen: React.FC<Props> = ({ navigation }) => {
     };
 
     return (
-        <AuthScreenLayout
+        <AuthenticationLayout
             title="Quên mật khẩu"
             allowBack
             onBack={() => navigation.goBack()}
@@ -119,12 +119,12 @@ const ForgotPasswordScreen: React.FC<Props> = ({ navigation }) => {
                 disabled={false}
                 style={{ marginTop: 10, paddingVertical: 2, borderRadius: 16 }}
                 buttonColor={COLORS.BUTTON_PRIMARY_COLOR}
-                textColor={COLORS.TEXT_PRIMARY_COLOR}
+                textColor={COLORS.PRIMARY_TEXT_IN_BUTTON_COLOR}
                 labelStyle={{ fontSize: SIZES.BUTTON_TEXT, fontWeight: '600' }}
             >
                 Gửi mã OTP
             </Button>
-        </AuthScreenLayout>
+        </AuthenticationLayout>
     )
 }
 

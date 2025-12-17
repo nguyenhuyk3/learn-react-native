@@ -2,7 +2,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 
 import {
-    AuthScreenLayout,
+    AuthenticationLayout,
     ErrorModal,
     LoadingOverlay
 } from '../../../../components';
@@ -11,7 +11,7 @@ import {
 } from '../../../../constants';
 import { useAuthentication } from '../../../../context';
 import { storageServices } from '../../../../storages';
-import { useLoginStore } from '../../../../stores/authentication';
+import { useLogInOutStore } from '../../../../stores/authentication';
 import { AuthenticationStackParamList } from '../../../../types/navigations';
 import { DefaultLogin, LoginButton, SecondaryButtons, WelcomeBack } from '../components';
 
@@ -47,12 +47,13 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
         isLoading,
         error,
         showErrorModal,
+        
         setUsername,
         setPassword,
         setRememberMe,
         clearError,
         login
-    } = useLoginStore();
+    } = useLogInOutStore();
     const { login: loginContext } = useAuthentication();
     const [savedUsername, setSavedUsername] = useState<string | null>(null);
     const [isCheckingStorage, setIsCheckingStorage] = useState(true);
@@ -60,12 +61,15 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
     useEffect(() => {
         const checkSavedUsername = async () => {
             const storedUsername = await storageServices.getString(STORAGE_KEYS.USERNAME);
+
             if (storedUsername) {
                 setSavedUsername(storedUsername);
                 setUsername(storedUsername);
             }
+
             setIsCheckingStorage(false);
         };
+
         checkSavedUsername();
     }, []);
 
@@ -83,7 +87,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
         setSavedUsername(null);
         setUsername('');
         setPassword('');
-        
+
         await storageServices.remove(STORAGE_KEYS.USERNAME);
     };
 
@@ -92,7 +96,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
     }
 
     return (
-        <AuthScreenLayout
+        <AuthenticationLayout
             title={savedUsername ? '' : 'Đăng nhập'}
             isWelcomeBack={!!savedUsername}
         >
@@ -136,7 +140,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                 onClose={clearError}
                 buttonText="Đồng ý"
             />
-        </AuthScreenLayout>
+        </AuthenticationLayout>
     );
 };
 

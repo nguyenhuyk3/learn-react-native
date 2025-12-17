@@ -31,6 +31,7 @@ export const COLORS = {
     // Feedback Colors
     ERROR_COLOR: '#ee5959ff',
     SUCCESS_COLOR: '#10B981',
+    WARNING_COLOR: '#f39410ff',
 
     // Modal Backdrop
     BACKDROP_COLOR: 'rgba(0, 0, 0, 0.5)',
@@ -39,7 +40,8 @@ export const COLORS = {
     BACK_BUTTON_COLOR: '#999999ff',
 
     // Border
-    BOTTOM_BORDER_COLOR: '#E0E0E0',
+    TOP_DIVIDER_BORDER_COLOR: '#E5E5E5',
+    BOTTOM_DIVIDER_BORDER_COLOR: '#E0E0E0',
 };
 
 export const SIZES = {

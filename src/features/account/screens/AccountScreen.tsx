@@ -1,11 +1,13 @@
 import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { ConfirmModal } from '../../../components';
 import { COLORS, STORAGE_KEYS } from '../../../constants';
 import { useAuthentication } from '../../../context';
 import { storageServices } from '../../../storages';
-import { useLoginStore } from '../../../stores/authentication';
+import { useLogInOutStore } from '../../../stores/authentication';
 import { TabParamList } from '../../../types/navigations';
 import {
     BookIcon,
@@ -26,12 +28,15 @@ type Props = {
 
 const AccountScreen: React.FC<Props> = ({ navigation }) => {
     const { isAuthenticated, logout: logoutContext } = useAuthentication();
-    const { logout } = useLoginStore();
+    const insets = useSafeAreaInsets();
+    const { logout } = useLogInOutStore();
     const [titleMode, setTitleMode] = React.useState('Chế độ khách');
+    const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
 
     React.useEffect(() => {
         if (!isAuthenticated) {
             setTitleMode('Chế độ khách');
+
             return;
         }
 
@@ -41,8 +46,23 @@ const AccountScreen: React.FC<Props> = ({ navigation }) => {
             .catch(() => setTitleMode('Chế độ khách'));
     }, [isAuthenticated]);
 
+    const handleConfirmLogout = async () => {
+        setShowLogoutModal(false);
+        logoutContext();
+
+        await logout();
+    };
+
+    const handleCancelLogout = () => {
+        setShowLogoutModal(false);
+    };
+
     return (
-        <ScrollView style={{ flex: 1, backgroundColor: COLORS.SECONDARY_BACKGROUND_COLOR }}>
+        <ScrollView style={{
+            flex: 1,
+            backgroundColor: COLORS.SECONDARY_BACKGROUND_COLOR,
+            marginTop: insets.top
+        }}>
             <AccountHeader
                 isAuthenticated={isAuthenticated}
                 title={titleMode}
@@ -83,16 +103,25 @@ const AccountScreen: React.FC<Props> = ({ navigation }) => {
                         icon={<LogoutIcon />}
                         title="Đăng xuất"
                         isLastElement
-                        onPress={async () => {
-                            logoutContext();
-
-                            await logout();
+                        onPress={() => {
+                            setShowLogoutModal(!showLogoutModal);
                         }}
                     />
                 </AccountSection>
             )}
 
             <VersionInfo />
+
+            {/* Modal */}
+            <ConfirmModal
+                visible={showLogoutModal}
+                icon='alert'
+                iconColor={COLORS.WARNING_COLOR}
+                title='Xác nhận đăng xuất'
+                subtitle='Bạn có chắc chắn muốn đăng xuất khỏi tài khoản không?'
+                onClose={handleCancelLogout}
+                onConfirm={handleConfirmLogout}
+            />
         </ScrollView>
     );
 };

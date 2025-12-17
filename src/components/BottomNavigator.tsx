@@ -65,9 +65,9 @@ const BottomNavigator: React.FC<BottomNavigatorProps> = ({
         <View
             style={{
                 flexDirection: 'row',
-                backgroundColor: COLORS.BACKGROUND_COLOR,
+                backgroundColor: COLORS.SECONDARY_BACKGROUND_COLOR,
                 borderTopWidth: 1,
-                borderTopColor: '#E5E5E5',
+                borderTopColor: COLORS.TOP_DIVIDER_BORDER_COLOR,
                 paddingTop: 8,
 
                 // SỬA DÒNG NÀY: Cộng insets.bottom với một khoảng đệm nhỏ (ví dụ 10px)

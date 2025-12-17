@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { COLORS, SIZES } from '../../../constants';
 
@@ -16,12 +15,11 @@ const AccountHeader: React.FC<Props> = ({
     title,
     onLoginPress,
 }) => {
-    const insets = useSafeAreaInsets();
 
     return (
         <View
             style={{
-                paddingTop: insets.top + 20,
+                paddingTop: 20,
                 paddingBottom: 10,
                 alignItems: 'center',
             }}
