@@ -17,7 +17,7 @@ interface AuthScreenLayoutProps {
 const AuthScreenLayout: React.FC<AuthScreenLayoutProps> = (
     { title, children, allowBack = false, isWelcomeBack, onBack }) => {
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.BACKGROUND_COLOR }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.PRIMARY_BACKGROUND_COLOR }}>
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 style={{ flex: 1 }}

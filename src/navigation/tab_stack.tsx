@@ -6,7 +6,8 @@ import HomeScreen from "../features/fake/HomeScreen";
 import ManageScreen from "../features/fake/ManageScreen";
 import ShoppingScreen from "../features/fake/ShoppingScreen";
 import NotificationsScreen from "../features/fake/NotificationsScreen";
-import AccountScreen from "../features/fake/AccountScreen";
+import AccountScreen from "../features/account/screens/AccountScreen";
+
 
 const Tab = createBottomTabNavigator<TabParamList>();
 

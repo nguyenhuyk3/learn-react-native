@@ -34,6 +34,13 @@ import { storageServices } from '../../../../storages';
         - LoginScreen
         - ForgotPasswordScreen
         - ProfileScreen
+
+    mode="contained" -> react-native-paper sẽ tự động thêm:
+        - 📱 Android:
+            + Ripple effect (sóng lan tròn)
+        - 🍎 iOS
+            + Opacity / overlay (màu phủ mờ khi nhấn)
+    -> rippleColor="transparent" tắt đi hiệu ứng trên
 */
 type Props = NativeStackScreenProps<AuthenticationStackParamList, 'login'>;
 
@@ -133,7 +140,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                     <Text
                         style={{
                             fontSize: SIZES.MEDIUM_ICON_SIZE,
-                            color: COLORS.BACKGROUND_COLOR,
+                            color: COLORS.PRIMARY_BACKGROUND_COLOR,
                             fontWeight: 'bold',
                         }}
                     >
@@ -175,9 +182,10 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
             isWelcomeBack={savedUsername ? true : false}>
             {savedUsername ? renderWelcomeBack() : renderDefaultLogin()}
 
-            {/* Main Login Button */}
+            {/* Login Button */}
             <Button
                 mode="contained"
+                rippleColor="transparent"
                 onPress={handleLogin}
                 loading={isLoading}
                 disabled={isLoading}
@@ -187,7 +195,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                     marginTop: savedUsername ? 10 : 0,
                 }}
                 buttonColor={COLORS.BUTTON_PRIMARY_COLOR}
-                textColor="#fff"
+                textColor={COLORS.PRIMARY_TEXT_IN_BUTTON_COLOR}
                 labelStyle={{ fontSize: SIZES.H6_TITLE, fontWeight: '700' }}
             >
                 {isLoading ? 'Đang xử lý...' : 'Đăng nhập'}

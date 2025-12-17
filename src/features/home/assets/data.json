@@ -1,0 +1,124 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "NEW STAR",
+      "status": "Đang mở bán",
+      "city": "Thành phố Hồ Chí Minh",
+      "thumbnail": "https://example.com/images/new_star_1.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 2,
+      "name": "MIAMI CITY",
+      "status": "Đang mở bán",
+      "city": "Thành phố Hồ Chí Minh",
+      "thumbnail": "https://example.com/images/miami_city.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 3,
+      "name": "GREEN PARK",
+      "status": "Sắp mở bán",
+      "city": "Bình Dương",
+      "thumbnail": "https://example.com/images/green_park.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 4,
+      "name": "SKY GARDEN",
+      "status": "Đang mở bán",
+      "city": "Đồng Nai",
+      "thumbnail": "https://example.com/images/sky_garden.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 5,
+      "name": "RIVERSIDE HOME",
+      "status": "Đã bàn giao",
+      "city": "Thành phố Hồ Chí Minh",
+      "thumbnail": "https://example.com/images/riverside_home.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 6,
+      "name": "GOLDEN TOWN",
+      "status": "Đang mở bán",
+      "city": "Long An",
+      "thumbnail": "https://example.com/images/golden_town.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 7,
+      "name": "PEARL PLAZA",
+      "status": "Sắp mở bán",
+      "city": "Thành phố Hồ Chí Minh",
+      "thumbnail": "https://example.com/images/pearl_plaza.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 8,
+      "name": "SUNRISE CITY",
+      "status": "Đang mở bán",
+      "city": "Bà Rịa - Vũng Tàu",
+      "thumbnail": "https://example.com/images/sunrise_city.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 9,
+      "name": "CENTRAL PARK",
+      "status": "Đã bàn giao",
+      "city": "Hà Nội",
+      "thumbnail": "https://example.com/images/central_park.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 10,
+      "name": "THE EMERALD",
+      "status": "Đang mở bán",
+      "city": "Thành phố Hồ Chí Minh",
+      "thumbnail": "https://example.com/images/the_emerald.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 11,
+      "name": "OCEAN VIEW",
+      "status": "Sắp mở bán",
+      "city": "Nha Trang",
+      "thumbnail": "https://example.com/images/ocean_view.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 12,
+      "name": "ROYAL CITY",
+      "status": "Đang mở bán",
+      "city": "Hà Nội",
+      "thumbnail": "https://example.com/images/royal_city.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 13,
+      "name": "LOTUS RESIDENCE",
+      "status": "Đã bàn giao",
+      "city": "Cần Thơ",
+      "thumbnail": "https://example.com/images/lotus_residence.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 14,
+      "name": "DIAMOND HILL",
+      "status": "Đang mở bán",
+      "city": "Đà Nẵng",
+      "thumbnail": "https://example.com/images/diamond_hill.jpg",
+      "contactLabel": "Liên hệ"
+    },
+    {
+      "id": 15,
+      "name": "PALM CITY",
+      "status": "Sắp mở bán",
+      "city": "Thành phố Hồ Chí Minh",
+      "thumbnail": "https://example.com/images/palm_city.jpg",
+      "contactLabel": "Liên hệ"
+    }
+  ]
+}
