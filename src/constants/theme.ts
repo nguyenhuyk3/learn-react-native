@@ -24,6 +24,7 @@ export const COLORS = {
 
     // Text
     TEXT_PRIMARY_COLOR: '#2C2C2Cff',
+    TEXT_SECONDARY_COLOR: '#999999ff',
 
     // Shadow
     SHADOW_COLOR: '#00000029',
@@ -61,7 +62,8 @@ export const SIZES = {
     H5_TITLE: 18,
     H6_TITLE: 16,
     H7_TITLE: 14,
-    H8_TITLE: 10,
+    H8_TITLE: 12,
+    H9_TITLE: 10,
 
     // Input
     INPUT_HEIGHT: 40,

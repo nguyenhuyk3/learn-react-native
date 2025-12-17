@@ -4,3 +4,4 @@ export { default as FormInput } from './FormInput';
 export { default as Logo } from './Logo';
 export { default as AuthenticationLayout } from './AuthenticationLayout';
 export { default as ConfirmModal } from './ConfirmModal';
+export { default as MiniLogo } from './MiniLogo';

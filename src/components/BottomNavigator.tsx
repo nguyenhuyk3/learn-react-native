@@ -65,7 +65,7 @@ const BottomNavigator: React.FC<BottomNavigatorProps> = ({
         <View
             style={{
                 flexDirection: 'row',
-                backgroundColor: COLORS.SECONDARY_BACKGROUND_COLOR,
+                backgroundColor: COLORS.PRIMARY_BACKGROUND_COLOR,
                 borderTopWidth: 1,
                 borderTopColor: COLORS.TOP_DIVIDER_BORDER_COLOR,
                 paddingTop: 8,
@@ -112,7 +112,7 @@ const BottomNavigator: React.FC<BottomNavigatorProps> = ({
                         />
                         <Text
                             style={{
-                                fontSize: SIZES.H8_TITLE,
+                                fontSize: SIZES.H9_TITLE,
                                 color: isActive
                                     ? COLORS.APP_PRIMARY_COLOR
                                     : COLORS.PLACE_HOLDER_TEXT_COLOR,

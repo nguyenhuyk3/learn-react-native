@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Modal } from "react-native";
 import { Button, Text } from "react-native-paper";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+// import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { Ionicons } from "@expo/vector-icons";
 
 import { COLORS, SIZES } from "../constants";
@@ -55,7 +55,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
                 >
                     {/* Icon */}
                     <View style={{ marginBottom: 24 }}>
-                        <MaterialCommunityIcons name={icon} size={70} color={iconColor} />
+                        <Ionicons name={icon} size={70} color={iconColor} />
                     </View>
 
                     {/* Title */}
