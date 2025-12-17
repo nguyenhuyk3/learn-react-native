@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+
 import { ProjectResponse } from '../../../dtos';
 import { COLORS, SIZES } from '../../../constants';
 

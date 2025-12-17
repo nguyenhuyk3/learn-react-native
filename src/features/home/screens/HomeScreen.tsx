@@ -5,14 +5,14 @@ import {
     FlatList,
     Text,
     TouchableOpacity,
-    View,
+    View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { MiniLogo } from '../../../components';
 import { COLORS, SIZES } from '../../../constants';
 import { useProjectStore } from '../../../stores';
 import { ProjectCard, SearchBar, Tabs } from '../components';
-import { MiniLogo } from '../../../components';
 
 const HomeScreen = () => {
     const insets = useSafeAreaInsets();
@@ -112,7 +112,7 @@ const HomeScreen = () => {
 
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.PRIMARY_BACKGROUND_COLOR, paddingTop: insets.top }}>
-            {/* <StatusBar barStyle="dark-content" backgroundColor={COLORS.PRIMARY_BACKGROUND_COLOR} /> */}
+            {/* <StatusBar barStyle="dark-content" backgroundColor={OLORS.PRIMARY_BACKGROUND_COLOR} /> */}
 
             {/* Header */}
             <View
@@ -137,10 +137,8 @@ const HomeScreen = () => {
                 onChangeText={setSearchQuery}
             />
 
-            {/* Content List/Loading/Error */}
             {renderContent()}
         </View>
     );
 };
-
 export default HomeScreen;

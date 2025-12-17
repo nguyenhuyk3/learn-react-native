@@ -49,7 +49,7 @@ export const useProjectStore = create<ProjectState>((set, get) => ({
 
             // set({ error: "Có lỗi ở phía máy chủ", loading: false });
             // set({ projects: [], loading: false });
-            set({ projects: data, loading: false })
+            set({ projects: data, loading: false });
         } catch (err: any) {
             set({ error: err.message });
         }
