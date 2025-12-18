@@ -12,8 +12,10 @@ interface HomeErrorProps {
 const Error: React.FC<HomeErrorProps> = ({ message, onRetry }) => {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 24 }}>
+            {/* Icon */}
             <Ionicons name="alert-circle-outline" size={48} color={COLORS.ERROR_COLOR} />
 
+            {/* Error */}
             <Text
                 style={{
                     marginTop: 10,
@@ -26,6 +28,7 @@ const Error: React.FC<HomeErrorProps> = ({ message, onRetry }) => {
                 {message || "Đã có lỗi xảy ra"}
             </Text>
 
+            {/* Button */}
             <TouchableOpacity
                 onPress={onRetry}
                 style={{

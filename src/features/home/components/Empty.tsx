@@ -9,7 +9,7 @@ const Empty: React.FC = () => {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
             <Ionicons name="search" size={40} color="#ccc" />
             <Text style={{ marginTop: 10, color: COLORS.TEXT_SECONDARY_COLOR, fontSize: SIZES.H7_TITLE }}>
-                Không tìm thấy dự án nào.
+                Không có dữ liệu
             </Text>
         </View>
     );

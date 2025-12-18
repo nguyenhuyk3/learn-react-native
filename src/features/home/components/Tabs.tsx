@@ -16,6 +16,7 @@ const Tabs: React.FC<TabsProps> = ({ selectedTab, onSelectTab }) => {
                 backgroundColor: COLORS.PRIMARY_BACKGROUND_COLOR,
                 paddingHorizontal: 16,
                 marginTop: 10,
+                marginBottom: 10,
                 gap: 8,
             }}
         >

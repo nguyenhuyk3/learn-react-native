@@ -15,7 +15,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, onChangeText }) => {
             style={{
                 flexDirection: 'row',
                 paddingHorizontal: 16,
-                paddingVertical: 12,
+                paddingVertical: 10,
                 backgroundColor: COLORS.PRIMARY_BACKGROUND_COLOR,
                 gap: 12,
             }}

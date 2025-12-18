@@ -1,1 +1,1 @@
-export {default as useProjectStore} from './project_store';
+export { default as useProjectStore } from './home_store';

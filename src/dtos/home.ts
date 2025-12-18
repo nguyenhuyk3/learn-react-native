@@ -6,3 +6,9 @@ export interface ProjectResponse {
     thumbnail: string;
     contactLabel: string;
 }
+
+export interface NewsResponse {
+    id: number;
+    title: string;
+    thumbnail: string;
+}
