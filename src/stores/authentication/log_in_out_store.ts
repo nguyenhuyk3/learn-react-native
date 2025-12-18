@@ -80,8 +80,8 @@ const useLogInOutStore = create<LogInOutState>((set, get) => ({
                 : storageServices.remove(STORAGE_KEYS.REMEMBER_ME));
 
             set({
-                username: '',
-                password: '',
+                username: username,
+                password: password,
                 isLoading: false,
                 error: null,
             });

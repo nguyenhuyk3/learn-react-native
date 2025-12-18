@@ -2,18 +2,17 @@ import React from 'react';
 import { Button } from 'react-native-paper';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useNavigation } from '@react-navigation/native';
 import { Controller, useForm } from 'react-hook-form';
 import * as z from 'zod';
 
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthenticationLayout, FormInput } from '../../../../components';
 import {
     COLORS,
     SIZES
 } from '../../../../constants/index';
 import { ForgotPasswordFormData, useForgotPasswordStore } from '../../../../stores/authentication';
-import { AuthenticationStackParamList, ForgotPasswordScreenNavigationProp } from '../../../../types/navigations';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { AuthenticationStackParamList } from '../../../../types/navigations';
 
 /*
     Tạo một schema Zod để:

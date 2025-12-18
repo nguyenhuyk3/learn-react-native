@@ -59,3 +59,29 @@ export const ChevronIcon = () => (
         <Path d="M9 18l6-6-6-6" stroke="#D4A027" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </Svg>
 );
+
+export const FaceRecognitionIcon = () => (
+    <Svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        {/* Khung nhận diện */}
+        <Path
+            d="M4 7V5a2 2 0 0 1 2-2h2
+                M20 7V5a2 2 0 0 0-2-2h-2
+                M4 17v2a2 2 0 0 0 2 2h2
+                M20 17v2a2 2 0 0 1-2 2h-2"
+            stroke="#D4A027"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+
+        {/* Khuôn mặt */}
+        <Circle cx="12" cy="10" r="2" stroke="#D4A027" strokeWidth="2" />
+        <Path
+            d="M8.5 15c.8-1 2-1.5 3.5-1.5s2.7.5 3.5 1.5"
+            stroke="#D4A027"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        />
+    </Svg>
+);

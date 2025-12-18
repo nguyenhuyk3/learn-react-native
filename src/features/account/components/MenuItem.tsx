@@ -46,7 +46,7 @@ const MenuItem: React.FC<Props> = ({ icon, title, isLastElement, onPress }) => {
                         left: '3%',          // 👈 chỉnh chiều rộng ở đây
                         right: '3%',         // 👈 chỉnh chiều rộng ở đây
                         height: 1,
-                        backgroundColor: COLORS.BOTTOM_BORDER_COLOR,
+                        backgroundColor: COLORS.BOTTOM_DIVIDER_BORDER_COLOR,
                     }}
                 />
             )}

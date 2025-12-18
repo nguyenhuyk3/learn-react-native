@@ -4,6 +4,7 @@ import { RootStackParamList } from "../types/navigations";
 
 import AuthenticationNavigator from "./authentication_stack";
 import TabNavigator from "./tab_stack";
+import AccountStackNavigator from "./account_stack";
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
